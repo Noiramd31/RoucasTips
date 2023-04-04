@@ -29,10 +29,25 @@ pool.getConnection().catch(() => {
 
 const models = {};
 
-const ItemManager = require("./ItemManager");
+const CityManager = require("./CityManager");
 
-models.item = new ItemManager();
-models.item.setDatabase(pool);
+models.city = new CityManager();
+models.city.setDatabase(pool);
+
+const PlaceManager = require("./PlaceManager");
+
+models.place = new PlaceManager();
+models.place.setDatabase(pool);
+
+const RestaurantManager = require("./RestaurantManager");
+
+models.restaurant = new RestaurantManager();
+models.restaurant.setDatabase(pool);
+
+const UserManager = require("./UserManager");
+
+models.user = new UserManager();
+models.user.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
